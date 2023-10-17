@@ -19,20 +19,6 @@ if (contraseñaIngresada == contraseña) {
 }
 
 
-let genero = prompt("¿Desea ver ropa de hombre o de mujer?")
-
-switch (genero) {
-    case "hombre":
-        console.log("Te vamos a mostrar ropa de hombre")
-        break
-    case "mujer":
-        console.log("Te vamos a mostrar ropa de mujer")
-        break
-    default:
-        console.log("Te vamos a mostrar ropa unisex")
-        break
-}
-
 
 // let numero = parseInt(prompt("OFERTA: a partir de 5 prendas, cada prenda vale $2000, con un máximo de 10 prendas por persona, cuantas prendas quiere comprar?"))
 
@@ -44,16 +30,26 @@ switch (genero) {
 const carrito = []
 
 function producto(prenda, marca, precio) {
-    this.prenda = prenda;
-    this.marca = marca;
+    this.prenda = prenda
+    this.marca = marca
     this.precio = precio
 }
 
-const producto1 = new producto("Buzo", "Adidas", 1500);
-const producto2 = new producto("Pantalon", "Adidas", 1000)
-const producto3 = new producto("Buzo", "Nike", 2000)
-const producto4 = new producto("Pantalon", "Nike", 1500)
+const catalogo = []
 
-carrito.push(producto1)
+const producto1 = new producto("Buzo", "Adidas", 15000)
+const producto2 = new producto("Pantalon", "Adidas", 10000)
+const producto3 = new producto("Buzo", "Nike", 20000)
+const producto4 = new producto("Pantalon", "Nike", 15000)
 
-console.log(carrito)
+catalogo.push(producto1)
+catalogo.push(producto2)
+catalogo.push(producto3)
+catalogo.push(producto4)
+
+console.log(catalogo)
+// const catalogo = productos.map(prenda => prenda.prenda)
+
+// alert("Las prendas disponibles son: " + catalogo)
+
+
