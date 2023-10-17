@@ -34,10 +34,26 @@ switch (genero) {
 }
 
 
-let numero = parseInt(prompt("OFERTA: a partir de 5 prendas, cada prenda vale $2000, con un máximo de 10 prendas por persona, cuantas prendas quiere comprar?"))
+// let numero = parseInt(prompt("OFERTA: a partir de 5 prendas, cada prenda vale $2000, con un máximo de 10 prendas por persona, cuantas prendas quiere comprar?"))
 
-for (i = 1; i <= 10; i++) {
-    let precio = 2000 * i
-    console.log(`$2000 x ${i} = $${precio}`)
+// for (i = 1; i <= 10; i++) {
+//     let precio = 2000 * i
+//     console.log(`$2000 x ${i} = $${precio}`)
+// }
+
+const carrito = []
+
+function producto(prenda, marca, precio) {
+    this.prenda = prenda;
+    this.marca = marca;
+    this.precio = precio
 }
 
+const producto1 = new producto("Buzo", "Adidas", 1500);
+const producto2 = new producto("Pantalon", "Adidas", 1000)
+const producto3 = new producto("Buzo", "Nike", 2000)
+const producto4 = new producto("Pantalon", "Nike", 1500)
+
+carrito.push(producto1)
+
+console.log(carrito)
