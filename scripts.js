@@ -38,14 +38,38 @@ const precioMaximo = parseInt(prompt("Ingresa un precio maximo de filtrado"))
 const productosFiltrados = filtrarPorPrecio(productos, precioMinimo, precioMaximo)
 
 console.log(productosFiltrados)
-// let filtro = parseInt(prompt("Filtrar por precio"))
-// catalogo.filter((p) => p.precio < filtro)
+
+const prendas = productos.map((p) => p.prenda)
+console.log(prendas)
 
 
+console.log("Productos Disponibles:")
+for (const producto of productos) {
+    console.log(`Id: ${producto.id}, Prenda: ${producto.prenda}, Precio: $${producto.precio}`);
+}
 
-// console.log(catalogo)
-// const catalogo = productos.map(prenda => prenda.prenda)
+let continuar = true
+while (continuar) {
+    const seleccion = parseInt(prompt("Ingrese el ID del producto que desea agregar al carrito (0 para finalizar):"))
 
-// alert("Las prendas disponibles son: " + catalogo)
+    if (seleccion === 0) {
+        continuar = false
+    } else {
+        const productoSeleccionado = productos.find(producto => producto.id === seleccion)
 
+        if (productoSeleccionado) {
+            carrito.push(productoSeleccionado)
+            console.log(`"${productoSeleccionado.prenda}" ha sido agregado al carrito.`)
+        } else {
+            console.log("ID de producto no válido. Inténtalo de nuevo.")
+        }
+    }
+}
 
+console.log("Carrito de Compras:")
+for (const producto of carrito) {
+    console.log(`Prenda: ${producto.prenda}, Precio: $${producto.precio}`)
+}
+const total = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0)
+
+console.log("El total de la compra es: $" + total)
