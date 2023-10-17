@@ -19,35 +19,31 @@ if (contraseñaIngresada == contraseña) {
 }
 
 
-
-// let numero = parseInt(prompt("OFERTA: a partir de 5 prendas, cada prenda vale $2000, con un máximo de 10 prendas por persona, cuantas prendas quiere comprar?"))
-
-// for (i = 1; i <= 10; i++) {
-//     let precio = 2000 * i
-//     console.log(`$2000 x ${i} = $${precio}`)
-// }
-
 const carrito = []
 
-function producto(prenda, marca, precio) {
-    this.prenda = prenda
-    this.marca = marca
-    this.precio = precio
+const productos = [
+    { id: 1, prenda: "Buzo adidas", precio: 15000 },
+    { id: 2, prenda: "Pantalon adidas", precio: 10000 },
+    { id: 3, prenda: "Buzo nike", precio: 20000 },
+    { id: 4, prenda: "Pantalon nike", precio: 15000 }
+]
+
+function filtrarPorPrecio(productos, precioMinimo, precioMaximo) {
+    return productos.filter(producto => producto.precio >= precioMinimo && producto.precio <= precioMaximo)
 }
 
-const catalogo = []
+const precioMinimo = parseInt(prompt("Ingresa un precio minimo de filtrado"))
+const precioMaximo = parseInt(prompt("Ingresa un precio maximo de filtrado"))
 
-const producto1 = new producto("Buzo", "Adidas", 15000)
-const producto2 = new producto("Pantalon", "Adidas", 10000)
-const producto3 = new producto("Buzo", "Nike", 20000)
-const producto4 = new producto("Pantalon", "Nike", 15000)
+const productosFiltrados = filtrarPorPrecio(productos, precioMinimo, precioMaximo)
 
-catalogo.push(producto1)
-catalogo.push(producto2)
-catalogo.push(producto3)
-catalogo.push(producto4)
+console.log(productosFiltrados)
+// let filtro = parseInt(prompt("Filtrar por precio"))
+// catalogo.filter((p) => p.precio < filtro)
 
-console.log(catalogo)
+
+
+// console.log(catalogo)
 // const catalogo = productos.map(prenda => prenda.prenda)
 
 // alert("Las prendas disponibles son: " + catalogo)
