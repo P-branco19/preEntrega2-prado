@@ -39,10 +39,6 @@ const productosFiltrados = filtrarPorPrecio(productos, precioMinimo, precioMaxim
 
 console.log(productosFiltrados)
 
-const prendas = productos.map((p) => p.prenda)
-console.log(prendas)
-
-
 console.log("Productos Disponibles:")
 for (const producto of productos) {
     console.log(`Id: ${producto.id}, Prenda: ${producto.prenda}, Precio: $${producto.precio}`);
@@ -70,6 +66,7 @@ console.log("Carrito de Compras:")
 for (const producto of carrito) {
     console.log(`Prenda: ${producto.prenda}, Precio: $${producto.precio}`)
 }
+
 const total = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0)
 
 console.log("El total de la compra es: $" + total)
